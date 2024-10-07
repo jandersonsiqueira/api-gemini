@@ -13,11 +13,10 @@ genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
 def converter_texto_para_html_markdown(texto):
     return markdown.markdown(texto)
 
-# Função assíncrona para carregar o contexto padrão a partir de um arquivo .txt
 async def carregar_contexto_padrao():
     try:
-        # Leitura do arquivo de texto de forma assíncrona
-        async with aiofiles.open('contexto_padrao.txt', mode='r') as f:
+        # Especifica a codificação como 'utf-8'
+        async with aiofiles.open('app/contexto_padrao.txt', mode='r', encoding='utf-8') as f:
             contexto = await f.read()
         return contexto.strip()
     except Exception as e:
