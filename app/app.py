@@ -16,7 +16,7 @@ def converter_texto_para_html_markdown(texto):
 async def carregar_contexto_padrao():
     try:
         # Especifica a codificação como 'utf-8'
-        async with aiofiles.open('app/contexto_padrao.txt', mode='r', encoding='utf-8') as f:
+        async with aiofiles.open('contexto_padrao.txt', mode='r', encoding='utf-8') as f:
             contexto = await f.read()
         return contexto.strip()
     except Exception as e:
@@ -53,8 +53,7 @@ async def obter_resposta(pergunta, contexto_padrao):
         response = model.generate_content(prompt)
         resposta_texto = response.text.strip()
         
-        # Converte a resposta gerada em HTML usando Markdown
-        return converter_texto_para_html_markdown(resposta_texto)
+        return resposta_texto
     except Exception as e:
         print(f"Erro ao acessar a API Gemini: {e}")
         return "Desculpe, ocorreu um erro ao processar sua pergunta."
