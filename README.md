@@ -97,7 +97,7 @@ O endpoint `/chat` recebe uma pergunta via `POST` e retorna uma resposta gerada 
 }
 ```
 
-## Estrutura do projeto
+## Estrutura do projeto 
 
 ```bash
 .
